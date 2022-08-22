@@ -1,0 +1,20 @@
+image:
+  registry: ''
+  name: ''
+  tag: ''
+  pullPolicy: IfNotPresent
+  pullSecrets:
+    - name: ghcr-login-key
+
+service:
+  name: ''
+  replicas: 1
+  ports: 
+    grpc: false
+    http: false
+  env: []
+
+httpIngress:
+  enabled: false
+  host: ''
+  path: ''

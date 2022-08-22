@@ -1,0 +1,26 @@
+{{- if or .Values.service.ports.grpc .Values.service.ports.http }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: '{{ printf "plendy-%s" .Values.service.name }}'
+  labels:
+    {{- include "plendy.labels" $ | nindent 4 }}
+    app.kubernetes.io/name: '{{ .Values.service.name }}'
+spec:
+  selector:
+    {{- include "plendy.selectorLabels" $ | nindent 4 }}
+    app.kubernetes.io/name: '{{ .Values.service.name }}'
+  ports:
+    {{- if .Values.service.ports.grpc }}
+    - name: grpc
+      protocol: TCP
+      port: 5000
+      targetPort: 5000
+    {{- end}}
+    {{- if .Values.service.ports.http }}
+    - name: web
+      protocol: TCP
+      port: 8000
+      targetPort: 8000
+    {{- end}}
+{{- end }}

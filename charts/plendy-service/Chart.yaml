@@ -1,0 +1,11 @@
+apiVersion: v2
+name: plendy-backend
+description: Generic helm chart for deploying Plendy Backend service
+version: 0.0.1
+kubeVersion: '>= 1.20'
+type: application
+home: https://github.com/pressfio
+maintainers:
+  - name: Alexsey Semushkin
+    email: aws.web.development@gmail.com
+deprecated: false

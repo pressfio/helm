@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: '{{ printf "plendy-%s" .Values.service.name }}'
+  labels:
+    {{- include "plendy.labels" $ | nindent 4 }}
+    app.kubernetes.io/name: '{{ .Values.service.name }}'
+spec:
+  replicas: {{ .Values.service.replicas }}
+  selector:
+    matchLabels:
+      {{- include "plendy.selectorLabels" $ | nindent 6 }}
+      app.kubernetes.io/name: '{{ .Values.service.name }}'
+  template:
+    metadata:
+      labels:
+        {{- include "plendy.selectorLabels" $ | nindent 8 }}
+        app.kubernetes.io/name: '{{ .Values.service.name }}'
+    spec:
+      {{- (include "plendy.defaultPodSpec" $) | nindent 6 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          {{- (include "plendy.defaultContainerSpec" $) | nindent 10 }}
+          {{- with .Values.service.env }}
+          env: 
+            {{- toYaml . | nindent 12 }}
+          {{- end}}
+          ports:
+            {{- if .Values.service.ports.grpc }}
+            - containerPort: 5000
+              protocol: TCP
+            {{- end}}
+            {{- if .Values.service.ports.http }}
+            - containerPort: 8000
+              protocol: TCP
+            {{- end}}
