@@ -32,8 +32,6 @@ https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#container-v
 {{- define "plendy.defaultContainerSpec" -}}
 securityContext:
   capabilities:
-  #  drop:
-  #    - ALL
     add:
       - NET_BIND_SERVICE
   # readOnlyRootFilesystem: true
