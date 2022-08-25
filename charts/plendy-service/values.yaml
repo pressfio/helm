@@ -1,7 +1,5 @@
 image:
-  registry: ''
-  name: ''
-  tag: ''
+  repository: ''
   pullPolicy: IfNotPresent
   pullSecrets:
     - name: ghcr-login-key

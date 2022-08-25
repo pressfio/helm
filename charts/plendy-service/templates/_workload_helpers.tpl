@@ -37,7 +37,7 @@ securityContext:
   # readOnlyRootFilesystem: true
   allowPrivilegeEscalation: false
   privileged: false
-image: '{{ .Values.image.registry }}/{{ .Values.image.name }}:{{ .Values.image.tag }}'
+image: '{{ .Values.image.repository }}'
 imagePullPolicy: {{ .Values.image.pullPolicy }}
 resources:
   requests:
