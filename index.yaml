@@ -2,6 +2,20 @@ apiVersion: v1
 entries:
   plendy-backend:
   - apiVersion: v2
+    created: "2022-08-25T20:19:24.795134764Z"
+    description: Generic helm chart for deploying Plendy Backend service
+    digest: d56518d5d9abaffc26696cfee874b1909ff65a0c920e214b6987aadfdcdb7b76
+    home: https://github.com/pressfio
+    kubeVersion: '>= 1.23'
+    maintainers:
+    - email: aws.web.development@gmail.com
+      name: Alexsey Semushkin
+    name: plendy-backend
+    type: application
+    urls:
+    - https://github.com/pressfio/helm/releases/download/plendy-backend-0.0.4/plendy-backend-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v2
     created: "2022-08-24T20:00:29.984986111Z"
     description: Generic helm chart for deploying Plendy Backend service
     digest: d05f76c3a886558e9f040e260fc33f67da4186aaf3fb7232119e6726679dfe10
@@ -29,4 +43,4 @@ entries:
     urls:
     - https://github.com/pressfio/helm/releases/download/plendy-backend-0.0.2/plendy-backend-0.0.2.tgz
     version: 0.0.2
-generated: "2022-08-24T20:00:29.984992511Z"
+generated: "2022-08-25T20:19:24.795147065Z"
