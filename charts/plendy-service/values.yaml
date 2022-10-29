@@ -3,8 +3,6 @@ image:
   repo: ''
   tag: ''
   pullPolicy: IfNotPresent
-  pullSecrets:
-    - name: ghcr-login-key
 
 service:
   name: ''

@@ -15,12 +15,8 @@ Default pod spec
 https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#podspec-v1-core
 */}}
 {{- define "plendy.defaultPodSpec" -}}
-{{- with .Values.image.pullSecrets -}}
-imagePullSecrets:
-  {{- toYaml . | nindent 2 }}
-{{- end }}
 restartPolicy: Always
-serviceAccountName: 'plendy-service-account'
+serviceAccountName: 'plendy-app'
 securityContext:
   {{- include "plendy.defaultPodSecurityContext" . | nindent 2 }}
 {{- end }}
