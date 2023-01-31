@@ -6,13 +6,15 @@ image:
 
 service:
   name: ''
+  args: []
   replicas: 1
   ports: 
     grpc: false
-    http: false
+    diag: false
   env: []
+
+grpcIngress:
+  enabled: false
 
 httpIngress:
   enabled: false
-  host: ''
-  path: ''

@@ -1,4 +1,4 @@
-{{- if or .Values.service.ports.grpc .Values.service.ports.http }}
+{{- if or .Values.service.ports.grpc .Values.service.ports.diag }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -17,10 +17,10 @@ spec:
       port: 5000
       targetPort: 5000
     {{- end}}
-    {{- if .Values.service.ports.http }}
-    - name: web
+    {{- if .Values.service.ports.diag }}
+    - name: diag
       protocol: TCP
-      port: 8000
-      targetPort: 8000
+      port: 8080
+      targetPort: 8080
     {{- end}}
 {{- end }}

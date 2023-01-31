@@ -16,7 +16,7 @@ https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#podspec-v1-
 */}}
 {{- define "plendy.defaultPodSpec" -}}
 restartPolicy: Always
-serviceAccountName: 'plendy-app'
+serviceAccountName: 'plendy-svc'
 securityContext:
   {{- include "plendy.defaultPodSecurityContext" . | nindent 2 }}
 {{- end }}
