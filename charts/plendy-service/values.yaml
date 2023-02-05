@@ -15,6 +15,9 @@ service:
 
 grpcIngress:
   enabled: false
+  host: ''
 
 httpIngress:
   enabled: false
+  host: ''
+  path: ''

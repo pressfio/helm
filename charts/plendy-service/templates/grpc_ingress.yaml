@@ -12,11 +12,11 @@ metadata:
 spec:
   tls:
   - hosts:
-    - '{{ printf "%s.plendy.app" .Values.service.name }}'
+    - '{{ .Values.grpcIngress.host | default (printf "%s.plendy.app" .Values.service.name) }}'
     secretName: grpc-secret
   ingressClassName: nginx
   rules:
-  - host: '{{ printf "%s.plendy.app" .Values.service.name }}'
+  - host: '{{ .Values.grpcIngress.host | default (printf "%s.plendy.app" .Values.service.name) }}'
     http:
       paths:
       - path: /
