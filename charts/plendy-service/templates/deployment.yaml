@@ -19,7 +19,7 @@ spec:
     spec:
       {{- (include "plendy.defaultPodSpec" $) | nindent 6 }}
       containers:
-        - name: {{ .Chart.Name }}
+        - name: '{{ printf "plendy-%s" .Values.service.name }}'
           {{- (include "plendy.defaultContainerSpec" $) | nindent 10 }}
           args: {{ .Values.service.args }}
           {{- with .Values.service.env }}
@@ -35,3 +35,13 @@ spec:
             - containerPort: 8000
               protocol: TCP
             {{- end}}
+      {{- if .Values.service.migrations.enabled }}
+      initContainers:
+        - name: '{{ printf "plendy-%s-migrate" .Values.service.name }}'
+          {{- (include "plendy.defaultContainerSpec" $) | nindent 10 }}
+          args: ['migrate', 'auto']
+          {{- with .Values.service.env }}
+          env: 
+            {{- toYaml . | nindent 12 }}
+          {{- end}}
+      {{- end}}

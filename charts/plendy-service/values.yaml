@@ -8,6 +8,8 @@ service:
   name: ''
   args: []
   replicas: 1
+  migrations:
+    enabled: false
   ports: 
     grpc: false
     diag: false
