@@ -12,6 +12,7 @@ service:
     enabled: false
   ports: 
     grpc: false
+    internal: false
     diag: false
   env: []
 

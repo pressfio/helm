@@ -31,8 +31,12 @@ spec:
             - containerPort: 5000
               protocol: TCP
             {{- end}}
-            {{- if .Values.service.ports.http }}
-            - containerPort: 8000
+            {{- if .Values.service.ports.internal }}
+            - containerPort: 5001
+              protocol: TCP
+            {{- end}}
+            {{- if .Values.service.ports.diag }}
+            - containerPort: 8080
               protocol: TCP
             {{- end}}
       {{- if .Values.service.migrations.enabled }}

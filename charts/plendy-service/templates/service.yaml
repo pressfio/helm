@@ -1,4 +1,4 @@
-{{- if or .Values.service.ports.grpc .Values.service.ports.diag }}
+{{- if or .Values.service.ports.grpc .Values.service.ports.internal .Values.service.ports.diag }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -16,6 +16,12 @@ spec:
       protocol: TCP
       port: 5000
       targetPort: 5000
+    {{- end}}
+    {{- if .Values.service.ports.internal }}
+    - name: internal
+      protocol: TCP
+      port: 5001
+      targetPort: 5001
     {{- end}}
     {{- if .Values.service.ports.diag }}
     - name: diag
