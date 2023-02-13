@@ -37,10 +37,10 @@ image: '{{ .Values.image.registry }}/{{ .Values.image.repo }}:{{ .Values.image.t
 imagePullPolicy: {{ .Values.image.pullPolicy }}
 resources:
   requests:
-    memory: 256Mi
-    cpu: "0.5"
+    memory: 128Mi
+    cpu: "100m"
   limits:
-    memory: 512Mi
-    cpu: "1"
+    memory: 256Mi
+    cpu: "200m"
 
 {{- end }}
