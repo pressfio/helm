@@ -14,6 +14,7 @@ service:
     grpc: false
     internal: false
     diag: false
+    static: false
   env: []
 
 grpcIngress:
@@ -21,6 +22,11 @@ grpcIngress:
   host: ''
 
 httpIngress:
+  enabled: false
+  host: ''
+  path: ''
+
+staticIngress:
   enabled: false
   host: ''
   path: ''

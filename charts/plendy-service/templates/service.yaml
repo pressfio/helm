@@ -29,4 +29,10 @@ spec:
       port: 8080
       targetPort: 8080
     {{- end}}
+    {{- if .Values.service.ports.static }}
+    - name: static
+      protocol: TCP
+      port: 8000
+      targetPort: 8000
+    {{- end}}
 {{- end }}
