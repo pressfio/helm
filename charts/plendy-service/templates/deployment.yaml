@@ -39,6 +39,10 @@ spec:
             - containerPort: 8080
               protocol: TCP
             {{- end}}
+            {{- if .Values.service.ports.static }}
+            - containerPort: 8000
+              protocol: TCP
+            {{- end}}
       {{- if .Values.service.migrations.enabled }}
       initContainers:
         - name: '{{ printf "plendy-%s-migrate" .Values.service.name }}'

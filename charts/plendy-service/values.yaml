@@ -24,9 +24,9 @@ grpcIngress:
 httpIngress:
   enabled: false
   host: ''
-  path: ''
+  path: '/'
 
 staticIngress:
   enabled: false
   host: ''
-  path: ''
+  path: '/'
